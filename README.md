@@ -1,9 +1,9 @@
 # BCC3004-SOLID
 Atividade sobre princípios SOLID de Engenhraria de software.
-  Princípios Escolhidos: - Princípio da Segregação da Interface
-                         - Princípio da responsabilidade única
-                         - 
-                         - 
+  Princípios Escolhidos: - Princípio da Segregação da Interface </br>
+                         - Princípio da responsabilidade única </br>
+                         - </br>
+                         - </br>
 
 
 <h2>  Principio da Segregação da Interface </h2>
