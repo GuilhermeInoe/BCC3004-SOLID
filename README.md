@@ -9,15 +9,17 @@ Atividade sobre princípios SOLID de Engenhraria de software. </br>
 <h2>  Principio da Segregação da Interface </h2>
 <h3>Este princípio diz que interfaces específicas são melhores do que interfaces gerais</h3>
 <h4>Exemplo ruim:</h4>
+
 ```
 class DebitarPagamento{
     void processarPagamentoCartao() //Neste caso, ao efetuar um pagamento em um cartão, a classe implementa a função processarPagamentoPix(), mesmo não sendo utilizada 
 
     void processarPagamentoPix()
 };
-``
+```
 
 <h4>Exemplo corrigido:</h4>
+
 ```
 class pagamentoCartao{          //Neste caso, as interfaces foram separadas, onde cada uma delas executa uma funcionalidade própria
       void processarPagamentoCartao()
@@ -32,6 +34,7 @@ class pagamentoCartao{          //Neste caso, as interfaces foram separadas, ond
 <h2>  Princípio da responsabilidade única </h2>
 <h3>Este princípio diz que toda classe deve ter apenas uma responsabilidade</h3>
 <h4>Exemplo ruim:</h4>
+
 ```
 class printCarro{
     private:
@@ -47,6 +50,7 @@ class printCarro{
 ```
 
 <h4>Exemplo corrigido:</h4>
+
 ```
 namespace console{                                 //Neste caso, temos classes separadas, que se preocupam somente com 
     private:                                          //uma única função
