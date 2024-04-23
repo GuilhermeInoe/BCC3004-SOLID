@@ -9,11 +9,11 @@ Atividade sobre princípios SOLID de Engenhraria de software. </br>
 <h2>  Principio da Segregação da Interface </h2>
 <h3>Este princípio diz que interfaces específicas são melhores do que interfaces gerais</h3>
 <h4>Exemplo ruim:</h4>
-<p>class DebitarPagamento{
+<b>class DebitarPagamento{
     void processarPagamentoCartao() //Neste caso, ao efetuar um pagamento em um cartão, a classe implementa a função processarPagamentoPix(), mesmo não sendo utilizada 
 
     void processarPagamentoPix()
-};</p>
+};</b>
 
 <h4>Exemplo corrigido:</h4>
 <p>class pagamentoCartao{          //Neste caso, as interfaces foram separadas, onde cada uma delas executa uma funcionalidade própria
