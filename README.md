@@ -3,8 +3,8 @@ Atividade sobre princípios SOLID de Engenhraria de software. </br>
   Princípios Escolhidos: </br>
 <p>    - Princípio da Segregação da Interface </br></p>
 <p>    - Princípio da responsabilidade única </br></p>
-<p>    - </br></p>
-<p>    - </br></p>
+<p>    - Composição a herança </br></p>
+<p>    - Demeter</br></p>
 
 </br>
 </br>
@@ -12,19 +12,21 @@ Atividade sobre princípios SOLID de Engenhraria de software. </br>
 <h2>  Principio da Segregação da Interface </h2>
 <h3>Este princípio diz que interfaces específicas são melhores do que interfaces gerais</h3>
 <h4>Exemplo ruim:</h4>
+<p>Neste caso, ao efetuar um pagamento em um cartão, a classe implementa a função processarPagamentoPix(), mesmo não sendo utilizada</p>
 
 ```
 class DebitarPagamento{
-    void processarPagamentoCartao() //Neste caso, ao efetuar um pagamento em um cartão, a classe implementa a função processarPagamentoPix(), mesmo não sendo utilizada 
+    void processarPagamentoCartao() 
 
     void processarPagamentoPix()
 };
 ```
 
 <h4>Exemplo corrigido:</h4>
+<p>Neste caso, as interfaces foram separadas, onde cada uma delas executa uma funcionalidade própria</p>
 
 ```
-class pagamentoCartao{          //Neste caso, as interfaces foram separadas, onde cada uma delas executa uma funcionalidade própria
+class pagamentoCartao{          
       void processarPagamentoCartao()
     };
   
@@ -39,6 +41,7 @@ class pagamentoCartao{          //Neste caso, as interfaces foram separadas, ond
 <h2>  Princípio da responsabilidade única </h2>
 <h3>Este princípio diz que toda classe deve ter apenas uma responsabilidade</h3>
 <h4>Exemplo ruim:</h4>
+<p>Neste exemplo, a mesma classe é responsável por duas atividades: imprimir veiculo e calcular o ipva</p>
 
 ```
 class printCarro{
@@ -49,16 +52,17 @@ class printCarro{
         char[50] modelo;
 
     public:
-        void printCarro(marca, modelo, ano, precoFipe) //Neste exemplo, a mesma classe é responsável por duas
-        void calcularIPVA(ano, precoFipe)              //atividades: imprimir veiculo e calcular o ipva
+        void printCarro(marca, modelo, ano, precoFipe) 
+        void calcularIPVA(ano, precoFipe)             
 };
 ```
 
 <h4>Exemplo corrigido:</h4>
+<p>Neste caso, temos classes separadas, que se preocupam somente com uma única função</p>
 
 ```
-namespace console{                                 //Neste caso, temos classes separadas, que se preocupam somente com 
-    private:                                          //uma única função
+class console{                                 
+    private:                                          
         int ano;
         float precoFipe;
         char[50] marca;
@@ -77,4 +81,104 @@ namespace console{                                 //Neste caso, temos classes s
             }
         };
 };
+```
+
+<h2>  Prefira composição a herança </h2>
+<h3>Este princípio diz que em certos casos, é preferível utilizar a composição ao invés da herança</h3>
+<h4>Exemplo ruim:</h4>
+<p>Neste exemplo, a mesma classe é responsável por duas atividades: imprimir veiculo e calcular o ipva</p>
+
+```
+codigoaqui
+```
+
+<h4>Exemplo corrigido:</h4>
+<p>Neste caso, temos classes separadas, que se preocupam somente com uma única função</p>
+
+```
+codigoaqui
+```
+
+<h2>  Demeter </h2>
+<h3>Este princípio diz que devemos evitar longas cadeias de chamadas de métodos</h3>
+<h4>Exemplo ruim:</h4>
+<p>Neste exemplo, estamos violando a lei de demeter ao acessar o pedido através do cliente</p>
+
+```
+class item{
+    private:
+        float preco;
+
+    public:
+        montarItem(){
+            //bloco de código
+        }
+}
+
+class pedido{
+    private:
+        int quantidade;
+
+    public:
+        getItem(){
+            return item;
+        }
+}
+
+class cliente{
+    private:
+        char[50] nome;
+
+    public:
+        getPedido() {
+            return pedido;
+        }
+        
+}
+
+int main(){
+    char Pedido = cliente.getPedido()->getItem()->montarItem();
+}
+
+```
+
+<h4>Exemplo corrigido:</h4>
+<p>Neste caso, temos uma chamada única, que exita outras chamadas</p>
+
+```
+class item{
+    private:
+        float preco;
+
+    public:
+        montarItem(){
+            //bloco de código
+        }
+}
+
+class pedido{
+    private:
+        int quantidade;
+
+    public:
+        getItem(){
+            return item;
+        }
+}
+
+class cliente{
+    private:
+        char[50] nome;
+
+    public:
+        getItem() {
+            return cliente.getPedido()->getItem();
+        }
+        
+}
+
+int main(){
+    string clienteItem= cliente->getItem();
+}
+
 ```
