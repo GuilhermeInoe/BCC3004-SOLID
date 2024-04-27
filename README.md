@@ -83,20 +83,82 @@ class console{
 };
 ```
 
-<h2>  Prefira composição a herança </h2>
-<h3>Este princípio diz que em certos casos, é preferível utilizar a composição ao invés da herança</h3>
+<h2>  Substituição de Liskov </h2>
+<h3>O Princípio de Substituição de Liskov diz que objetos podem ser substituídos por seus subtipos sem que isso afete a execução correta do programa</h3>
 <h4>Exemplo ruim:</h4>
-<p>Neste exemplo, a mesma classe é responsável por duas atividades: imprimir veiculo e calcular o ipva</p>
+<p>Neste exemplo, para calcular a área do quadrado, o código ignora o valor da altura, assim, um objeto da classe quadrado não pode ser substituído por um objeto da classe figura, sem afetar o funcionamento do programa</p>
 
 ```
-codigoaqui
+
+using System;
+
+namespace LSP_Violacao
+{
+    class Program
+    {
+        private static Retangulo getNovoRetangulo()
+        {
+            //um factory
+            return new Quadrado();
+        }
+
+        static void Main(string[] args)
+        {
+            //vamos criar um novo retangulo
+             Retangulo r = Program.getNovoRetangulo();
+
+            //definindo a largura e altura do retangulo   
+             r.setLargura(5);
+             r.setAltura(10);
+            // o usuário sabe que r é um retângulo
+            // e assume que ele pode definir largura e altura
+           // como para a classe base(Retangulo)
+
+            Console.WriteLine(r.getArea());
+            Console.ReadKey();
+           // O valor retornado é 100 e não 50 como era esperado
+        }
+    }
+}
+
 ```
 
 <h4>Exemplo corrigido:</h4>
-<p>Neste caso, temos classes separadas, que se preocupam somente com uma única função</p>
+<p>Alterando o método estático getNovoRetangulo(); podemos garantir o funcionamento correto do programa </p>
 
 ```
-codigoaqui
+
+using System;
+
+namespace LSP_Correcao
+{
+    class Program
+    {
+        
+        private static Retangulo getNovoRetangulo()
+        {
+        //um factory
+        return new Retangulo();
+        }
+
+        static void Main(string[] args)
+        {
+            //vamos criar um novo retangulo
+             Retangulo r = Program.getNovoRetangulo();
+
+            //definindo a largura e altura do retangulo   
+             r.setLargura(5);
+             r.setAltura(10);
+            // o usuário sabe que r é um retângulo
+            // e assume que ele pode definir largura e altura
+           // como para a classe base(Retangulo)
+
+            Console.WriteLine(r.getArea());
+            Console.ReadKey();
+           // O valor retornado é 100 e não 50 como era esperado
+        }
+    }
+}
 ```
 
 <h2>  Demeter </h2>
