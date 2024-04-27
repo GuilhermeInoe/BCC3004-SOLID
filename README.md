@@ -86,7 +86,7 @@ class console{
 <h2>  Substituição de Liskov </h2>
 <h3>O Princípio de Substituição de Liskov diz que objetos podem ser substituídos por seus subtipos sem que isso afete a execução correta do programa</h3>
 <h4>Exemplo ruim:</h4>
-<p>Neste exemplo, para calcular a área do quadrado, o código ignora o valor da altura, assim, um objeto da classe quadrado não pode ser substituído por um objeto da classe figura, sem afetar o funcionamento do programa</p>
+<p>Neste exemplo, para calcular a área do quadrado, o código ignora o valor da altura, assim, um objeto da classe quadrado não pode ser substituído por um objeto da classe figura, sem afetar o funcionamento do programa. código disponível em: https://www.macoratti.net/11/05/oop_lsp1.htm</p>
 
 ```
 
