@@ -3,7 +3,7 @@ Atividade sobre princípios SOLID de Engenhraria de software. </br>
   Princípios Escolhidos: </br>
 <p>    - Princípio da Segregação da Interface </br></p>
 <p>    - Princípio da responsabilidade única </br></p>
-<p>    - Composição a herança </br></p>
+<p>    - Substituição de Liskov </br></p>
 <p>    - Demeter</br></p>
 
 </br>
