@@ -102,7 +102,7 @@ codigoaqui
 <h2>  Demeter </h2>
 <h3>Este princípio diz que devemos evitar longas cadeias de chamadas de métodos</h3>
 <h4>Exemplo ruim:</h4>
-<p>Neste exemplo, estamos violando a lei de demeter ao acessar o pedido através do cliente</p>
+<p>Neste exemplo, estamos violando a lei de demeter ao acessar o item do pedido através do cliente</p>
 
 ```
 class item{
@@ -143,7 +143,7 @@ int main(){
 ```
 
 <h4>Exemplo corrigido:</h4>
-<p>Neste caso, temos uma chamada única, que exita outras chamadas</p>
+<p>Neste caso, temos uma chamada única, que evita outras chamadas</p>
 
 ```
 class item{
