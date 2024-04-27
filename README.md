@@ -31,7 +31,7 @@ class pagamentoCartao{
     };
   
     class pagamentoPix{
-      void processarPagamentoCredito()
+      void processarPagamentoPix()
     };
 };
 ```
